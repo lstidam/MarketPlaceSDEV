@@ -33,6 +33,7 @@ struct User {
 }
 
 var loggedInUserName: String = ""
+var loggedInUserPassword: String = ""
 
 var users: [User] = [
 User(userName: "santaclaus349", userPassword: "SDEV260"),

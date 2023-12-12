@@ -8,12 +8,11 @@
 import UIKit
 
 class MarketPlaceViewController: UIViewController {
-
-    var loggedInUserPassword = ""
     
     @IBOutlet var loginUserName: UITextField!
     @IBOutlet var loginPassword: UITextField!
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet var createAccountButton: UIButton!
     @IBOutlet var loginError: UILabel!
     
     override func viewDidLoad() {
@@ -21,22 +20,15 @@ class MarketPlaceViewController: UIViewController {
         loginError.text = ""
         // Do any additional setup after loading the view.
         loginButton.layer.cornerRadius = 15
+        createAccountButton.layer.cornerRadius = 15
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        guard let userName = loginUserName.text else { return }
-            loggedInUserName = userName
-        guard loggedInUserName != "" else {
-            loginError.text = "Please enter Username"
-            return
-        }
-        guard let userPassword = loginPassword.text else { return }
-            loggedInUserPassword = userPassword
-        guard loggedInUserPassword != "" else {
-            loginError.text = "Please enter Password"
+        let passed = validateUserInput()
+        if !passed {
             return
         }
         let validatedUser = User(userName: loggedInUserName, userPassword: loggedInUserPassword)
@@ -45,6 +37,32 @@ class MarketPlaceViewController: UIViewController {
             return
         }
         performSegue(withIdentifier: "loginToNavigationSegue", sender: self)
+    }
+    
+    @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+        let passed = validateUserInput()
+        if !passed {
+            return
+        }
+        let newUser = User(userName: loggedInUserName, userPassword: loggedInUserPassword)
+        users.append(newUser)
+        performSegue(withIdentifier: "loginToNavigationSegue", sender: self)
+    }
+    
+    func validateUserInput() -> Bool {
+        guard let userName = loginUserName.text else { return false }
+            loggedInUserName = userName
+        guard loggedInUserName != "" else {
+            loginError.text = "Please enter Username"
+            return false
+        }
+        guard let userPassword = loginPassword.text else { return false }
+            loggedInUserPassword = userPassword
+        guard loggedInUserPassword != "" else {
+            loginError.text = "Please enter Password"
+            return false
+        }
+        return true
     }
 }
 
