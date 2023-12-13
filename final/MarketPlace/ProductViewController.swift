@@ -20,6 +20,7 @@ class ProductViewController: UIViewController {
     var currentProductIndex: Int = 0
     var currentUserName: String = ""
     var currentProductID: Int = 0
+    var sellerUserName: String = ""
     
     
     override func viewDidLoad() {
@@ -39,7 +40,7 @@ class ProductViewController: UIViewController {
         productPriceLabel.text = "$" + String(currentProduct.productPrice)
         productDescriptionLabel.text = currentProduct.productDescription
         userNameButton.setTitle(currentProduct.productUserName, for: .normal)
-        
+        sellerUserName = currentProduct.productUserName
     }
     
     @IBAction func buyButtonPressed(_ sender: UIButton) {
@@ -64,7 +65,7 @@ class ProductViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "productToProfileSegue" {
             let destinationViewController = segue.destination as? ProfileViewController
-            destinationViewController?.currentUserName = currentUserName
+            destinationViewController?.currentUserName = sellerUserName
         }
     }
     
