@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
             let destinationViewController = segue.destination as? SearchResultViewController
             destinationViewController?.currentProductName = currentProductName
         }
+    
         if segue.identifier == "homeToProductSegue" {
             let destinationViewController = segue.destination as? ProductViewController
             destinationViewController?.currentProductIndex = currentProductIndex

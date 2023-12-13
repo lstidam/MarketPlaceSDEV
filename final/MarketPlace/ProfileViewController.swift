@@ -59,6 +59,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.sellingImageView.image = usersProducts[indexPath.row].productImage
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentProductID = usersProducts[indexPath.row].productID
+        print(currentProductID)
+        performSegue(withIdentifier: "profileToProductViewSegue", sender: self)
+    }
 
     /*
     // MARK: - Navigation
