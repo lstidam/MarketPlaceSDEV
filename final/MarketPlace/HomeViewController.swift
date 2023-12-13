@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
+    // test
     var currentProductIndex = 0
     var currentProductName = ""
     var currentUserName = ""
