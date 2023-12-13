@@ -33,6 +33,7 @@ struct User {
 }
 
 var loggedInUserName: String = ""
+var loggedInUserPassword: String = ""
 
 var users: [User] = [
 User(userName: "santaclaus349", userPassword: "SDEV260"),
@@ -47,7 +48,7 @@ struct SavedProduct {
 var savedProducts: [SavedProduct] = [
 SavedProduct(savedUserName: "santaclaus349", savedProductID: 3),
 SavedProduct(savedUserName: "rudolph27", savedProductID: 1),
-SavedProduct(savedUserName: "frosty981", savedProductID: 5)
+SavedProduct(savedUserName: "frosty981", savedProductID: 0)
 ]
 
 extension User: Equatable {
