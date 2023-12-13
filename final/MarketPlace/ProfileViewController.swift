@@ -9,26 +9,55 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     var currentUserName = ""
     
+    var usersProducts: [Product] = []
+    
     @IBOutlet var userNameLabel: UILabel!
-    @IBOutlet var savedImage: UIImageView!
-    @IBOutlet var sellingImage: UIImageView!
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor.systemMint
         updateUI()
 
         // Do any additional setup after loading the view.
     }
     func updateUI() {
-        let currentProduct = products[0]
-        userNameLabel.text = currentProduct.productUserName
-        savedImage.image = currentProduct.productImage
-        sellingImage.image = currentProduct.productImage
+        let nib = UINib(nibName: "SellingTableViewCell", bundle: nil)
+        userNameLabel.text = currentUserName
+        tableView.register(nib, forCellReuseIdentifier: "SellingTableViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
         
+        for product in products{
+            if product.productUserName == currentUserName{
+                usersProducts.append(product)
+            }
+        }
+        
+
+        
+    }
+    
+    
+    //TableView functions
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return usersProducts.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SellingTableViewCell", for: indexPath) as! SellingTableViewCell
+        cell.sellingLabel.text = usersProducts[indexPath.row].productName
+        cell.sellingImageView.image = usersProducts[indexPath.row].productImage
+        return cell
     }
 
     /*
