@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     var currentProductIndex = 0
     var currentProductName = ""
     var currentUserName = ""
-    // test user
+    // test ignored files
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUserName = loggedInUserName
