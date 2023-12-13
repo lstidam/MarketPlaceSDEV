@@ -51,7 +51,6 @@ class ProductViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         let currentSavedProduct = SavedProduct(savedUserName: currentUserName, savedProductID: currentProductID)
         savedProducts.append(currentSavedProduct)
-        products.remove(at: currentProductIndex)
         productDescriptionLabel.text = "Saved."
     }
     

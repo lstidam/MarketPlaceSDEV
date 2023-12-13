@@ -48,7 +48,7 @@ struct SavedProduct {
 var savedProducts: [SavedProduct] = [
 SavedProduct(savedUserName: "santaclaus349", savedProductID: 3),
 SavedProduct(savedUserName: "rudolph27", savedProductID: 1),
-SavedProduct(savedUserName: "frosty981", savedProductID: 5)
+SavedProduct(savedUserName: "frosty981", savedProductID: 0)
 ]
 
 extension User: Equatable {
