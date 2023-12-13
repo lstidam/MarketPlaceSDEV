@@ -38,38 +38,57 @@ class SellerViewController: UIViewController {
     }
     
     @IBAction func productButtonPressed(_ sender: UIButton) {
-        if let optionalImage = sellerImage.image {
+        
+        guard let optionalImage = sellerImage.image else {
+            sellerError.text = "User did not provide image"
+            return
+            }
             currentProductImage = optionalImage
-        } else {
-            print("User did not provide image")
+        
+        guard let optionalProductName = sellerProductName.text else {
+            sellerError.text = "User did not provide product name"
+            return
         }
-        if let optionalProductName = sellerProductName.text {
             currentProductName = optionalProductName
-        } else {
-            print("User did not provide product name")
+        guard currentProductName != "" else {
+            sellerError.text = "User did not provide product name"
+            return
         }
-        if let optionalPriceString = sellerPrice.text {
+        
+        guard let optionalPriceString = sellerPrice.text else {
+            sellerError.text = "User did not enter price"
+            return
+        }
             currentPriceString = optionalPriceString
-        } else {
-            print("User did not enter price")
+        guard currentPriceString != "" else {
+            sellerError.text = "User did not enter price"
+            return
         }
-        if let optionalPrice = Int(currentPriceString) {
+        guard let optionalPrice = Int(currentPriceString) else {
+            sellerError.text = "User entered non-integer price"
+            return
+        }
             currentProductPrice = optionalPrice
-        } else {
-            print("User entered non-integer price")
+        
+        guard let optionalProductDescription = sellerDescription.text else {
+            sellerError.text = "User did not provide description"
+            return
         }
-        if let optionalProductDescription = sellerDescription.text {
             currentProductDescription = optionalProductDescription
-        } else {
-            print("User did not provide description")
+        guard currentProductDescription != "" else {
+            sellerError.text = "User did not provide description"
+            return
         }
-            
+        
+        if let lastProduct = products.last {
+            currentProductID = lastProduct.productID + 1
+        }
         let currentProduct = Product(productID: currentProductID, productImage: currentProductImage, productName: currentProductName, productPrice: currentProductPrice, productDescription: currentProductDescription, productUserName: currentUserName)
         products.append(currentProduct)
         sellerProductName.text = "Added!"
         sellerPrice.text = ""
         sellerDescription.text = ""
-        sellerImage.image = nil
+//        sellerImage.image = nil
         
         currentProductIndex = products.count - 1
         performSegue(withIdentifier: "sellerToProductSegue", sender: self)
