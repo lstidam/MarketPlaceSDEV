@@ -8,23 +8,41 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    // test
-    var currentProductIndex = 0
+    
+    @IBOutlet var featuredImage: UIImageView!
+    @IBOutlet var featuredProductName: UILabel!
+    @IBOutlet var sellerButton: UIButton!
+    @IBOutlet var searchResultButton: UIButton!
+    @IBOutlet var profileButton: UIButton!
+    
     var currentProductName = ""
     var currentUserName = ""
-    // test user
+    var currentProductID = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUserName = loggedInUserName
+        sellerButton.layer.cornerRadius = 15
+        searchResultButton.layer.cornerRadius = 15
+        profileButton.layer.cornerRadius = 15
+        updateUI()
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func sellerButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "homeToSellerSegue", sender: self)
+    
+    func updateUI() {
+        let productsCount = products.count
+        let randomIndex = Int.random(in: 0...productsCount)
+        let featuredProduct = products[randomIndex]
+        featuredImage.image = featuredProduct.productImage
+        featuredProductName.text = featuredProduct.productName
+        currentProductID = featuredProduct.productID
     }
     
-    @IBAction func productButtonPressed(_ sender: UIButton) {
+    @IBAction func featuredImageTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "homeToProductSegue", sender: self)
+    }
+    
+    @IBAction func sellerButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "homeToSellerSegue", sender: self)
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
@@ -35,23 +53,23 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "homeToProfileSegue", sender: self)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homeToSellerSegue" {
             let destinationViewController = segue.destination as? SellerViewController
-            destinationViewController?.currentUserName = currentUserName
+            destinationViewController?.currentUserName = loggedInUserName
         }
         if segue.identifier == "homeToSearchResultSegue" {
             let destinationViewController = segue.destination as? SearchResultViewController
-            destinationViewController?.currentProductName = currentProductName
+            destinationViewController?.currentProductName = loggedInUserName
         }
         if segue.identifier == "homeToProductSegue" {
             let destinationViewController = segue.destination as? ProductViewController
-            destinationViewController?.currentProductIndex = currentProductIndex
-            destinationViewController?.currentUserName = currentUserName
+            destinationViewController?.currentProductID = currentProductID
         }
         if segue.identifier == "homeToProfileSegue" {
             let destinationViewController = segue.destination as? ProfileViewController
-            destinationViewController?.currentUserName = currentUserName
+            destinationViewController?.currentUserName = loggedInUserName
         }
     }
     

@@ -17,18 +17,17 @@ class ProductViewController: UIViewController {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var userNameButton: UIButton!
     
-    var currentProductIndex: Int = 0
-    var currentUserName: String = ""
     var currentProductID: Int = 0
     var sellerUserName: String = ""
+    var currentProductIndex: Int = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         buyButton.layer.cornerRadius = 15
         saveButton.layer.cornerRadius = 15
         userNameButton.layer.cornerRadius = 15
-        // Do any additional setup after loading the view.
         updateUI()
     }
     
@@ -50,7 +49,7 @@ class ProductViewController: UIViewController {
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let currentSavedProduct = SavedProduct(savedUserName: currentUserName, savedProductID: currentProductID)
+        let currentSavedProduct = SavedProduct(savedUserName: loggedInUserName, savedProductID: currentProductID)
         savedProducts.append(currentSavedProduct)
         productDescriptionLabel.text = "Saved."
     }
