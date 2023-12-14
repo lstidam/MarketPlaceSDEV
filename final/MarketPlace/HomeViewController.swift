@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
+// test
     @IBOutlet var featuredImage: UIImageView!
     @IBOutlet var featuredProductName: UILabel!
     @IBOutlet var sellerButton: UIButton!
