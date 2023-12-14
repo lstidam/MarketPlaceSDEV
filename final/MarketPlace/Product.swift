@@ -36,6 +36,7 @@ var loggedInUserName: String = ""
 var loggedInUserPassword: String = ""
 
 var users: [User] = [
+User(userName: "1", userPassword: "2"),
 User(userName: "santaclaus349", userPassword: "SDEV260"),
 User(userName: "rudolph27", userPassword: "SDEV260"),
 User(userName: "frosty981", userPassword: "SDEV260")]

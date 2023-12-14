@@ -17,30 +17,40 @@ class ProductViewController: UIViewController {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var userNameButton: UIButton!
     
-    var currentProductIndex: Int = 0
-    var currentUserName: String = ""
     var currentProductID: Int = 0
     var sellerUserName: String = ""
-    
+    var currentProductIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buyButton.layer.cornerRadius = 15
-        saveButton.layer.cornerRadius = 15
-        userNameButton.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
         updateUI()
     }
     
+    // find product in products array associated with passed in currentProductID
     func updateUI() {
-        let currentProduct = products[currentProductIndex]
-        currentProductID = currentProduct.productID
-        productImageImage.image = currentProduct.productImage
-        productNameLabel.text = currentProduct.productName
-        productPriceLabel.text = "$" + String(currentProduct.productPrice)
-        productDescriptionLabel.text = currentProduct.productDescription
-        userNameButton.setTitle(currentProduct.productUserName, for: .normal)
-        sellerUserName = currentProduct.productUserName
+        buyButton.layer.cornerRadius = 15
+        saveButton.layer.cornerRadius = 15
+        userNameButton.layer.cornerRadius = 15
+        userNameButton.isEnabled = true
+        var displayProductFound = false
+        for displayProduct in products {
+            if displayProduct.productID == currentProductID {
+                displayProductFound = true
+                productImageImage.image = displayProduct.productImage
+                productNameLabel.text = displayProduct.productName
+                productPriceLabel.text = "$" + String(displayProduct.productPrice)
+                productDescriptionLabel.text = displayProduct.productDescription
+                userNameButton.setTitle(displayProduct.productUserName, for: .normal)
+                sellerUserName = displayProduct.productUserName
+                break
+            }
+        }
+        // product not found in products array
+        if displayProductFound == false {
+            productDescriptionLabel.text = "Product not found"
+            userNameButton.isEnabled = false
+        }
     }
     
     @IBAction func buyButtonPressed(_ sender: UIButton) {
@@ -50,7 +60,7 @@ class ProductViewController: UIViewController {
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let currentSavedProduct = SavedProduct(savedUserName: currentUserName, savedProductID: currentProductID)
+        let currentSavedProduct = SavedProduct(savedUserName: loggedInUserName, savedProductID: currentProductID)
         savedProducts.append(currentSavedProduct)
         productDescriptionLabel.text = "Saved."
     }
