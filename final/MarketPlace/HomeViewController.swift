@@ -14,10 +14,12 @@ class HomeViewController: UIViewController {
     @IBOutlet var sellerButton: UIButton!
     @IBOutlet var searchResultButton: UIButton!
     @IBOutlet var profileButton: UIButton!
+    @IBOutlet var searchTextField: UITextField!
     
     var currentProductName = ""
     var currentUserName = ""
     var currentProductID = 0
+    var searchResults: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,19 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
+        guard let searchText = searchTextField.text else { return}
+        guard searchText != "" else {
+            searchTextField.text = "Please enter search text"
+            return
+        }
+        for searchProduct in products {
+            if searchProduct.productName.lowercased().contains(searchText.lowercased()) {
+                searchResults.append(searchProduct)
+            } else if searchProduct.productDescription.lowercased().contains(searchText.lowercased()) {
+                searchResults.append(searchProduct)
+            }
+        }
+        print(searchResults)
         performSegue(withIdentifier: "homeToSearchResultSegue", sender: self)
     }
     
