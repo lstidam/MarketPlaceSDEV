@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
     
     func updateUI() {
         let productsCount = products.count
-        let randomIndex = Int.random(in: 0...productsCount)
+        let randomIndex = Int.random(in: 0...productsCount - 1)
         let featuredProduct = products[randomIndex]
         featuredImage.image = featuredProduct.productImage
         featuredProductName.text = featuredProduct.productName
