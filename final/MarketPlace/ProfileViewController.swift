@@ -12,6 +12,7 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     var currentUserName = ""
+    var currentProductID = 0
     
     var usersProducts: [Product] = []
     
@@ -62,9 +63,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentProductID = usersProducts[indexPath.row].productID
+        currentProductID = usersProducts[indexPath.row].productID
         print(currentProductID)
         performSegue(withIdentifier: "profileToProductViewSegue", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profileToProductViewSegue" {
+            let destinationViewController = segue.destination as? ProductViewController
+            destinationViewController?.currentProductID = currentProductID
+        }
     }
 
     /*
