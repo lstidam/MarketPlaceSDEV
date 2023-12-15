@@ -213,7 +213,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DXm-z0-5ZB">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DXm-z0-5ZB">
                                 <rect key="frame" x="10" y="66" width="373" height="766"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sellerUserName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaI-LP-GT6" userLabel="sellerUserName">
@@ -223,51 +223,57 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Prooduct Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5Q-pL-utm">
-                                        <rect key="frame" x="0.0" y="21.333333333333329" width="373" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="22.333333333333329" width="373" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. iPhone 15 Pro Titanium" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-5G-Ajk" userLabel="sellerProductName">
-                                        <rect key="frame" x="0.0" y="42.666666666666657" width="373" height="379.66666666666674"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. iPhone 15 Pro Titanium" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-5G-Ajk" userLabel="sellerProductName">
+                                        <rect key="frame" x="0.0" y="43.666666666666671" width="373" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Price with no decimals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHv-Go-9QE">
-                                        <rect key="frame" x="0.0" y="423.33333333333331" width="373" height="20.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="78.666666666666657" width="373" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex. 900" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oY9-vK-a0T" userLabel="sellerPrice">
-                                        <rect key="frame" x="0.0" y="444.66666666666669" width="373" height="34"/>
+                                        <rect key="frame" x="0.0" y="100" width="373" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter product description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtB-6O-iTC" userLabel="descriptionLabel">
-                                        <rect key="frame" x="0.0" y="479.66666666666663" width="373" height="20.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="135" width="373" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apt-2P-hb0" userLabel="sellerDescription">
-                                        <rect key="frame" x="0.0" y="501.00000000000006" width="373" height="68.666666666666686"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apt-2P-hb0" userLabel="sellerDescription">
+                                        <rect key="frame" x="0.0" y="156.33333333333331" width="373" height="178.33333333333331"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="178.33333333333331" id="EWx-QV-PZs"/>
+                                        </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JO-ph-nfB" userLabel="imageLabel">
-                                        <rect key="frame" x="0.0" y="570.66666666666663" width="373" height="20.333333333333371"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JO-ph-nfB" userLabel="imageLabel">
+                                        <rect key="frame" x="0.0" y="335.66666666666669" width="373" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTb-VR-yCo">
-                                        <rect key="frame" x="0.0" y="592" width="373" height="69"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VTb-VR-yCo">
+                                        <rect key="frame" x="0.0" y="357" width="373" height="179"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="179" id="L4e-a5-qRI"/>
+                                        </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hu-wC-zKa">
-                                        <rect key="frame" x="0.0" y="662" width="373" height="34.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="537" width="373" height="34.333333333333371"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Add Product"/>
@@ -276,12 +282,15 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-M4-Lad">
-                                        <rect key="frame" x="0.0" y="697.33333333333337" width="373" height="68.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="572.33333333333337" width="373" height="193.66666666666663"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="apt-2P-hb0" firstAttribute="top" secondItem="DXm-z0-5ZB" secondAttribute="top" constant="156.33333333333331" id="yLs-PF-7w3"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TU0-Hq-AW4"/>
@@ -546,7 +555,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ugn-uN-Gbb"/>
-        <segue reference="eLj-hd-aZC"/>
+        <segue reference="ubm-tc-jwM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="marketplace_icon" width="341.33334350585938" height="341.33334350585938"/>
