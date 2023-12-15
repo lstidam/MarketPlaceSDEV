@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-// test
+    
     @IBOutlet var featuredImage: UIImageView!
     @IBOutlet var featuredProductName: UILabel!
     @IBOutlet var sellerButton: UIButton!
@@ -39,9 +39,13 @@ class HomeViewController: UIViewController {
         currentProductID = featuredProduct.productID
     }
     
-    @IBAction func featuredImageTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "homeToProductSegue", sender: self)
     }
+    
+//    @IBAction func featureImageTapped(_ sender: UITapGestureRecognizer) {
+//        performSegue(withIdentifier: "homeToProductSegue", sender: self)
+//    }
     
     @IBAction func sellerButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "homeToSellerSegue", sender: self)
