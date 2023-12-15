@@ -11,10 +11,12 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet var tableView: UITableView!
     var currentProductName = ""
+    var searchResults: [Product] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("sr \(searchResults)")
         // Do any additional setup after loading the view.
         
         let nib = UINib(nibName: "ProductTableViewCell", bundle: nil)
@@ -25,19 +27,23 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     
     //TableView functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+//        return products.count
+        return searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as! ProductTableViewCell
-        cell.myLabel.text = products[indexPath.row].productName
-        cell.myImageView.image = products[indexPath.row].productImage
+//        cell.myLabel.text = products[indexPath.row].productName
+        cell.myLabel.text = searchResults[indexPath.row].productName
+//        cell.myImageView.image = products[indexPath.row].productImage
+        cell.myImageView.image = searchResults[indexPath.row].productImage
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentProductID = products[indexPath.row].productID
+//        let currentProductID = products[indexPath.row].productID
+        let currentProductID = searchResults[indexPath.row].productID
         print(currentProductID)
         performSegue(withIdentifier: "productTableToProductViewSegue", sender: self)
     }

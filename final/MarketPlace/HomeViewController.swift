@@ -43,15 +43,12 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "homeToProductSegue", sender: self)
     }
     
-//    @IBAction func featureImageTapped(_ sender: UITapGestureRecognizer) {
-//        performSegue(withIdentifier: "homeToProductSegue", sender: self)
-//    }
-    
     @IBAction func sellerButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "homeToSellerSegue", sender: self)
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
+        searchResults = []
         guard let searchText = searchTextField.text else { return}
         guard searchText != "" else {
             searchTextField.text = "Please enter search text"
@@ -80,7 +77,7 @@ class HomeViewController: UIViewController {
         }
         if segue.identifier == "homeToSearchResultSegue" {
             let destinationViewController = segue.destination as? SearchResultViewController
-            destinationViewController?.currentProductName = loggedInUserName
+            destinationViewController?.searchResults = searchResults
         }
     
         if segue.identifier == "homeToProductSegue" {
