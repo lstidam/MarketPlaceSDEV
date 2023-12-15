@@ -9,10 +9,10 @@ import UIKit
 
 class SellerViewController: UIViewController {
 
+    var currentProductID: Int = 0
     var currentUserName = ""
     var currentProductIndex = 0
     
-    var currentProductID = 0
     var currentProductImage = UIImage(imageLiteralResourceName: "iphone15.jpg")
     var currentProductName = ""
     var currentPriceString = ""
@@ -40,43 +40,43 @@ class SellerViewController: UIViewController {
     @IBAction func productButtonPressed(_ sender: UIButton) {
         
         guard let optionalImage = sellerImage.image else {
-            sellerError.text = "User did not provide image"
+            sellerError.text = "Please provide image"
             return
             }
             currentProductImage = optionalImage
         
         guard let optionalProductName = sellerProductName.text else {
-            sellerError.text = "User did not provide product name"
+            sellerError.text = "Please provide product name"
             return
         }
             currentProductName = optionalProductName
         guard currentProductName != "" else {
-            sellerError.text = "User did not provide product name"
+            sellerError.text = "Please provide product name"
             return
         }
         
         guard let optionalPriceString = sellerPrice.text else {
-            sellerError.text = "User did not enter price"
+            sellerError.text = "Please provide price"
             return
         }
             currentPriceString = optionalPriceString
         guard currentPriceString != "" else {
-            sellerError.text = "User did not enter price"
+            sellerError.text = "Please provide price"
             return
         }
         guard let optionalPrice = Int(currentPriceString) else {
-            sellerError.text = "User entered non-integer price"
+            sellerError.text = "Price must be an integer"
             return
         }
             currentProductPrice = optionalPrice
         
         guard let optionalProductDescription = sellerDescription.text else {
-            sellerError.text = "User did not provide description"
+            sellerError.text = "Please provide description"
             return
         }
             currentProductDescription = optionalProductDescription
         guard currentProductDescription != "" else {
-            sellerError.text = "User did not provide description"
+            sellerError.text = "Please provide description"
             return
         }
         
@@ -91,13 +91,13 @@ class SellerViewController: UIViewController {
 //        sellerImage.image = nil
         
         currentProductIndex = products.count - 1
-        performSegue(withIdentifier: "sellerToProductSegue", sender: self)
+//        performSegue(withIdentifier: "sellerToProductSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sellerToProductSegue" {
             let destinationViewController = segue.destination as? ProductViewController
-            destinationViewController?.currentProductIndex = currentProductIndex
+            destinationViewController?.currentProductID = currentProductID
         }
     }
 
