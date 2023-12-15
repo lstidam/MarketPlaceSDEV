@@ -12,6 +12,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var tableView: UITableView!
     var currentProductName = ""
     var searchResults: [Product] = []
+    var currentProductID = 0
     
     
     override func viewDidLoad() {
@@ -43,11 +44,17 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let currentProductID = products[indexPath.row].productID
-        let currentProductID = searchResults[indexPath.row].productID
-        print(currentProductID)
+        currentProductID = searchResults[indexPath.row].productID
+        print("sr \(currentProductID)")
         performSegue(withIdentifier: "productTableToProductViewSegue", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "productTableToProductViewSegue" {
+            let destinationViewController = segue.destination as? ProductViewController
+            destinationViewController?.currentProductID = currentProductID
+        }
+    }
     
     
     
