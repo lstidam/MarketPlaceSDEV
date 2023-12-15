@@ -491,7 +491,7 @@
                                 <rect key="frame" x="16" y="20" width="361" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userNameLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncK-lq-W6T">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -510,6 +510,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="0LW-Nd-Nm2" secondAttribute="trailing" id="7Hd-bP-8DJ"/>
+                                    <constraint firstItem="ncK-lq-W6T" firstAttribute="centerX" secondItem="BFH-pj-7fy" secondAttribute="centerX" id="Sbr-u3-7St"/>
                                     <constraint firstItem="0LW-Nd-Nm2" firstAttribute="leading" secondItem="BFH-pj-7fy" secondAttribute="leading" id="VPw-0s-TpH"/>
                                     <constraint firstAttribute="bottom" secondItem="0LW-Nd-Nm2" secondAttribute="bottom" id="mhz-T7-xf6"/>
                                 </constraints>
