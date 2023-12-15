@@ -447,7 +447,13 @@
                             <constraint firstItem="Mfw-PP-Bh6" firstAttribute="top" secondItem="iLf-ZL-REo" secondAttribute="top" constant="10" id="nRq-FZ-PzF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Product" id="9dY-Hr-UMw"/>
+                    <navigationItem key="navigationItem" title="Product" id="9dY-Hr-UMw">
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="thZ-fw-R8S">
+                            <connections>
+                                <segue destination="V8h-Gz-WKP" kind="unwind" unwindAction="unwindToHomeWithUnwindSegue:" id="3k6-r7-koZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="buyButton" destination="bXJ-oO-74K" id="3Ds-9q-lUU"/>
                         <outlet property="productDescriptionLabel" destination="ZjW-Fj-cSc" id="fTA-ty-OsB"/>
@@ -460,6 +466,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1f2-vS-zFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="V8h-Gz-WKP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2883" y="649"/>
         </scene>
@@ -538,8 +545,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7FC-1t-Xep"/>
-        <segue reference="ubm-tc-jwM"/>
+        <segue reference="ugn-uN-Gbb"/>
+        <segue reference="eLj-hd-aZC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="marketplace_icon" width="341.33334350585938" height="341.33334350585938"/>
@@ -550,13 +557,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -54,6 +54,11 @@ class ProductViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    
     @IBAction func buyButtonPressed(_ sender: UIButton) {
         products.remove(at: currentProductIndex)
         productDescriptionLabel.text = "Thank you for your purchase."

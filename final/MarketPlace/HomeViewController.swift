@@ -39,6 +39,10 @@ class HomeViewController: UIViewController {
         currentProductID = featuredProduct.productID
     }
     
+    @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
+    
+    }
+    
     @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "homeToProductSegue", sender: self)
     }
