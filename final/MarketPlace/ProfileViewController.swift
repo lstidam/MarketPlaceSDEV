@@ -9,8 +9,10 @@
 
 import UIKit
 
+// manages the profile screen
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+    // var currentUserName is passed in by other screens
     var currentUserName = ""
     var currentProductID = 0
     
@@ -64,7 +66,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentProductID = usersProducts[indexPath.row].productID
-        print(currentProductID)
         performSegue(withIdentifier: "profileToProductViewSegue", sender: self)
     }
     

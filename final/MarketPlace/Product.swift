@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// products for sale
 struct Product {
     var productID: Int
     var productImage: UIImage
@@ -17,6 +18,7 @@ struct Product {
     var productUserName: String
 }
 
+// sample products
 var products: [Product] = [
     Product(productID: 1, productImage: UIImage(imageLiteralResourceName: "macbookpro.jpg"), productName: "MacBook Pro", productPrice: 500, productDescription: "2019 MacBook Pro. Intel I5, 8GB RAM, 256GB drive.", productUserName: "santaclaus349"),
     Product(productID: 2, productImage: UIImage(imageLiteralResourceName: "boots.jpg"), productName: "Women's boots", productPrice: 50, productDescription: "Gently used Ugg boots, size 9.", productUserName: "santaclaus349"),
@@ -27,31 +29,37 @@ var products: [Product] = [
     Product(productID: 7, productImage: UIImage(imageLiteralResourceName: "tablet.jpg"), productName: "Amazon Fire Tablet", productPrice: 35, productDescription: "8 inch HD display. 32 GB memory. Black. Two years old. Minor scratches.", productUserName: "frosty981")
 ]
 
+// users of the app
 struct User {
     var userName: String
     var userPassword: String
 }
 
+// track who is logged into the app
 var loggedInUserName: String = ""
 var loggedInUserPassword: String = ""
 
+// sample registered users
 var users: [User] = [
 User(userName: "1", userPassword: "2"),
 User(userName: "santaclaus349", userPassword: "SDEV260"),
 User(userName: "rudolph27", userPassword: "SDEV260"),
 User(userName: "frosty981", userPassword: "SDEV260")]
 
+// products saved by users
 struct SavedProduct {
     var savedUserName: String
     var savedProductID: Int
 }
 
+// sample saved products
 var savedProducts: [SavedProduct] = [
 SavedProduct(savedUserName: "santaclaus349", savedProductID: 3),
 SavedProduct(savedUserName: "rudolph27", savedProductID: 1),
 SavedProduct(savedUserName: "frosty981", savedProductID: 0)
 ]
 
+// provides capability to compare users for equality
 extension User: Equatable {
     static func == (lhs: User, rhs: User) -> Bool {
         lhs.userName == rhs.userName && lhs.userPassword == rhs.userPassword

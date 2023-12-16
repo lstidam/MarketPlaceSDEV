@@ -7,6 +7,7 @@
 
 import UIKit
 
+// manages the home screen
 class HomeViewController: UIViewController {
     
     @IBOutlet var featuredImage: UIImageView!
@@ -65,7 +66,6 @@ class HomeViewController: UIViewController {
                 searchResults.append(searchProduct)
             }
         }
-        print(searchResults)
         performSegue(withIdentifier: "homeToSearchResultSegue", sender: self)
     }
     

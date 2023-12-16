@@ -7,6 +7,7 @@
 
 import UIKit
 
+// manages the product screen
 class ProductViewController: UIViewController {
 
     @IBOutlet var productImageImage: UIImageView!
@@ -17,13 +18,13 @@ class ProductViewController: UIViewController {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var userNameButton: UIButton!
     
+    // var currentID is passed in from other screen view controllers
     var currentProductID: Int = 0
     var sellerUserName: String = ""
     var currentProductIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("pr \(currentProductID)")
         // Do any additional setup after loading the view.
         updateUI()
     }
@@ -35,6 +36,7 @@ class ProductViewController: UIViewController {
         userNameButton.layer.cornerRadius = 15
         userNameButton.isEnabled = true
         var displayProductFound = false
+        currentProductIndex = 0
         for displayProduct in products {
             if displayProduct.productID == currentProductID {
                 displayProductFound = true
@@ -46,6 +48,7 @@ class ProductViewController: UIViewController {
                 sellerUserName = displayProduct.productUserName
                 break
             }
+            currentProductIndex += 1
         }
         // product not found in products array
         if displayProductFound == false {

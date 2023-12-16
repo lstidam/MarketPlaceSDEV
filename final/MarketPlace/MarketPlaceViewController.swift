@@ -7,6 +7,7 @@
 
 import UIKit
 
+// manages the login screen
 class MarketPlaceViewController: UIViewController {
     
     @IBOutlet var loginUserName: UITextField!

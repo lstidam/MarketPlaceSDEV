@@ -7,9 +7,11 @@
 
 import UIKit
 
+// manages the seller screen
 class SellerViewController: UIViewController {
 
     var currentProductID: Int = 0
+// var currentUserName is passed in from Home view controller and is the user who is logged in
     var currentUserName = ""
     var currentProductIndex = 0
     
@@ -91,6 +93,9 @@ class SellerViewController: UIViewController {
 //        sellerImage.image = nil
         
         currentProductIndex = products.count - 1
+//      - decided not to display product screen at this time
+//      - would currently give user the ability to buy their own product
+//      - need to signal to product to gray out buy and save buttons in version 2
 //        performSegue(withIdentifier: "sellerToProductSegue", sender: self)
     }
     
